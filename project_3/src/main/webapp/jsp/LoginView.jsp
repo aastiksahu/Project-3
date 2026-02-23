@@ -46,12 +46,12 @@ i.css {
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/loginhere.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/abstract-square-interface-modern-background-concept-fingerprint-digital-scanning-visual-security-system-authentication-login-vector.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed; 
 	background-size: cover;
-	padding-top: 75px;
-/*background-position: center top;*/
+	padding-top: 100px;
+	background-position: center top;
 	
 }
 </style>

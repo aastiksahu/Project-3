@@ -25,7 +25,7 @@ i.css {
 	 background-color: #ebebe0;
 }
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/profile.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wp3228730.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed; 
 	background-size: cover;

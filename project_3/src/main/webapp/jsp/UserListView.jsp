@@ -1,4 +1,3 @@
-
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="in.co.rays.project_3.model.ModelFactory"%>
@@ -20,7 +19,7 @@
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/al.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/8a36f1b33b436275a8424ab0d7c307da.jpg');
 	
 	background-repeat: no-repeat;
 	background-attachment: fixed; 

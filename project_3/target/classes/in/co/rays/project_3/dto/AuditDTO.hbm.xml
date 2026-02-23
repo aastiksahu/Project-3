@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-Feb-2026, 10:33:20 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="AuditDTO" table="ST_AUDIT">
+		<id name="id" type="java.lang.Long">
+			<column name="ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="actionType" type="java.lang.String">
+			<column name="ACTIONTYPE" />
+		</property>
+		<property name="result" type="java.lang.String">
+			<column name="RESULT" />
+		</property>
+		<property name="actionbBy" type="java.lang.String">
+			<column name="ACTIONBBY" />
+		</property>
+		<property name="actionDate" type="java.util.Date">
+			<column name="ACTIONDATE" />
+		</property>
+	</class>
+</hibernate-mapping>

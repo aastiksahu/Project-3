@@ -26,7 +26,7 @@ i.css {
 }
 
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/user1.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wp3228730.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -58,7 +58,8 @@ i.css {
 							<%
 								long id = DataUtility.getLong(request.getParameter("id"));
 
-								if (dto.getFirstName() != null && dto.getId() > 0) {
+								if (dto.getFirstName() != null && dto.getId() > 0)
+								/* if (id > 0 ) */ {
 							%>
 							<h3 class="text-center default-text text-primary">Update
 								User</h3>

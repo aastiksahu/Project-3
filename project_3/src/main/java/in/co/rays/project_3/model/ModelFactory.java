@@ -28,6 +28,74 @@ public final class ModelFactory {
 		}
 		return mFactory;
 	}
+	
+	public FinanceModelInt getFinanceModel() {
+
+		FinanceModelInt financeModel = (FinanceModelInt) modelCache.get("financeModel");
+		if (financeModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				financeModel = new FinanceModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				financeModel = new FinanceModelHibImpl();
+			}
+			modelCache.put("financeModel", financeModel);
+		}
+
+		return financeModel;
+	}
+	
+	public BannerModelInt getBannerModel() {
+
+		BannerModelInt bannerModel = (BannerModelInt) modelCache.get("bannerModel");
+		if (bannerModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				bannerModel = new BannerModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				bannerModel = new BannerModelHibImpl();
+			}
+			modelCache.put("bannerModel", bannerModel);
+		}
+
+		return bannerModel;
+	}
+	
+	public AuditModelInt getAuditModel() {
+
+		AuditModelInt auditModel = (AuditModelInt) modelCache.get("auditModel");
+		if (auditModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				auditModel = new AuditModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				auditModel = new AuditModelHibImpl();
+			}
+			modelCache.put("auditModel", auditModel);
+		}
+
+		return auditModel;
+	}
+	
+	public AddressModelInt getAddressModel() {
+
+		AddressModelInt addressModel = (AddressModelInt) modelCache.get("addressModel");
+		if (addressModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				addressModel = new AddressModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				addressModel = new AddressModelHibImpl();
+			}
+			modelCache.put("addressModel", addressModel);
+		}
+
+		return addressModel;
+	}
 
 	public ProductModelInt getProductModel() {
 		ProductModelInt productModel = (ProductModelInt) modelCache.get("productModel");
@@ -101,6 +169,23 @@ public final class ModelFactory {
 		}
 
 		return userModel;
+	}
+	
+	public StaffMemberModelInt getStaffMemberModel() {
+
+		StaffMemberModelInt staffMemberModel = (StaffMemberModelInt) modelCache.get("staffMemberModel");
+		if (staffMemberModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				staffMemberModel = new StaffMemberModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				staffMemberModel = new StaffMemberModelHibImpl();
+			}
+			modelCache.put("staffMemberModel", staffMemberModel);
+		}
+
+		return staffMemberModel;
 	}
 
 	public StudentModelInt getStudentModel() {

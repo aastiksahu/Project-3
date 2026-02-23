@@ -15,7 +15,34 @@ public interface ORSView {
 	public String JAVA_DOC_VIEW = APP_CONTEXT + "/doc/index.html";
 
 	public String ERROR_VIEW = PAGE_FOLDER + "/ErrorView404.jsp";
+	
+	
+	public String FINANCE_VIEW = PAGE_FOLDER + "/FinanceView.jsp";
 
+	public String FINANCE_LIST_VIEW = PAGE_FOLDER + "/FinanceListView.jsp";
+	
+	public String FINANCE_CTL = APP_CONTEXT + "/ctl/FinanceCtl";
+
+	public String FINANCE_LIST_CTL = APP_CONTEXT + "/ctl/FinanceListCtl";
+	
+	
+	
+	public String BANNER_VIEW = PAGE_FOLDER + "/BannerView.jsp";
+
+	public String BANNER_LIST_VIEW = PAGE_FOLDER + "/BannerListView.jsp";
+	
+	public String BANNER_CTL = APP_CONTEXT + "/ctl/BannerCtl";
+
+	public String BANNER_LIST_CTL = APP_CONTEXT + "/ctl/BannerListCtl";
+	
+	public String AUDIT_VIEW = PAGE_FOLDER + "/AuditView.jsp";
+
+	public String AUDIT_LIST_VIEW = PAGE_FOLDER + "/AuditListView.jsp";
+	
+	public String AUDIT_CTL = APP_CONTEXT + "/ctl/AuditCtl";
+
+	public String AUDIT_LIST_CTL = APP_CONTEXT + "/ctl/AuditListCtl";
+	
 	public String MARKSHEET_VIEW = PAGE_FOLDER + "/MarksheetView.jsp";
 
 	public String MARKSHEET_LIST_VIEW = PAGE_FOLDER + "/MarksheetListView.jsp";
@@ -25,6 +52,14 @@ public interface ORSView {
 	public String USER_VIEW = PAGE_FOLDER + "/UserView.jsp";
 
 	public String USER_LIST_VIEW = PAGE_FOLDER + "/UserListView.jsp";
+	
+	public String STAFF_MEMBER_VIEW = PAGE_FOLDER + "/StaffMemberView.jsp";
+
+	public String STAFF_MEMBER_LIST_VIEW = PAGE_FOLDER + "/StaffMemberListView.jsp";
+	
+	public String ADDRESS_VIEW = PAGE_FOLDER + "/AddressView.jsp";
+
+	public String ADDRESS_LIST_VIEW = PAGE_FOLDER + "/AddressListView.jsp";
 
 	public String COLLEGE_VIEW = PAGE_FOLDER + "/CollegeView.jsp";
 
@@ -81,6 +116,14 @@ public interface ORSView {
 	public String USER_CTL = APP_CONTEXT + "/ctl/UserCtl";
 
 	public String USER_LIST_CTL = APP_CONTEXT + "/ctl/UserListCtl";
+	
+	public String STAFF_MEMBER_CTL = APP_CONTEXT + "/ctl/StaffMemberCtl";
+
+	public String STAFF_MEMBER_LIST_CTL = APP_CONTEXT + "/ctl/StaffMemberListCtl";
+	
+	public String ADDRESS_CTL = APP_CONTEXT + "/ctl/AddressCtl";
+
+	public String ADDRESS_LIST_CTL = APP_CONTEXT + "/ctl/AddressListCtl";
 
 	public String COLLEGE_CTL = APP_CONTEXT + "/ctl/CollegeCtl";
 

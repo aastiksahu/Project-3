@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-Feb-2026, 10:48:33 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="BannerDTO" table="ST_BANNER">
+		<id name="id" type="java.lang.Long">
+			<column name="ID"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="bannerCode" type="java.lang.String">
+			<column name="BANNERCODE" />
+		</property>
+		<property name="bannerStatus" type="java.lang.String">
+			<column name="BANNERSTATUS" />
+		</property>
+		<property name="bannerTitle" type="java.lang.String">
+			<column name="BANNERTITLE" />
+		</property>
+		<property name="imagePath" type="java.lang.String">
+			<column name="IMAGEPATH" />
+		</property>
+	</class>
+</hibernate-mapping>

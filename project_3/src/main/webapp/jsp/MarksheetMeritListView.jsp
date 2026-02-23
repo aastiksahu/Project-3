@@ -27,7 +27,7 @@
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/list2.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/8a36f1b33b436275a8424ab0d7c307da.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed; 
 	background-size: cover;

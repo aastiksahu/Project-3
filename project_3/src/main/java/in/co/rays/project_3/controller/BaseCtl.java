@@ -76,7 +76,7 @@ public abstract class BaseCtl extends HttpServlet{
     	String createdBy=request.getParameter("createdBy");
     	String modifiedBy=null;
 
-    	// UserDTO userDto=(UserDTO)request.getSession().getAttribute("user");
+		// UserDTO userDto=(UserDTO)request.getSession().getAttribute("user");
 
     	HttpSession session=request.getSession();
 

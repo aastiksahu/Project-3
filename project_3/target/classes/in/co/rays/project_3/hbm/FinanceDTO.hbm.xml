@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-Feb-2026, 10:20:50 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="in.co.rays.project_3.dto">
+    <class name="FinanceDTO" table="ST_FINANCE">
+        <id name="id" type="java.lang.Long">
+			<column name="ID"></column>
+			<generator class="increment"></generator>
+		</id>
+        <property name="loanAmount" type="java.lang.String">
+            <column name="LOANAMOUNT" />
+        </property>
+        <property name="appliedDate" type="java.util.Date">
+            <column name="APPLIEDDATE" />
+        </property>
+        <property name="tenure" type="java.lang.String">
+            <column name="TENURE" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+    </class>
+</hibernate-mapping>

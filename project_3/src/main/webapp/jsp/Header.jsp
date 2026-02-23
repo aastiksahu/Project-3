@@ -28,7 +28,7 @@
 
 <style type="text/css">
 .aj {
-	background-image: linear-gradient(to bottom right, grey, black);
+	background-image: linear-gradient(to bottom right, white, darkblue);
 }
 </style>
 </head>
@@ -206,18 +206,65 @@
 						</a>
 					</div></li>
 
-				<li class="nav-item dropdown" style="padding-left: 5px"><a
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Product
-					</font></a>
-
+					aria-expanded="false"> <font style="color: white;">Staff
+							Member</font>
+				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.STAFF_MEMBER_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Staff Member</a> <a
+							class="dropdown-item" href="<%=ORSView.STAFF_MEMBER_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Staff Member List</a>
+					</div></li> --%>
 
-						<a class="dropdown-item" href="<%=ORSView.PRODUCT_CTL%>"><i
-							class="fa fa-file"></i>Add Product</a> <a class="dropdown-item"
-							href="<%=ORSView.PRODUCT_LIST_CTL%>"><i class="fa fa-paste"></i>Product
-							List</a>
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Address</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.ADDRESS_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Address</a> <a
+							class="dropdown-item" href="<%=ORSView.ADDRESS_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Address List</a>
+					</div></li> --%>
+
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Audit</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.AUDIT_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Audit</a> <a
+							class="dropdown-item" href="<%=ORSView.AUDIT_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Audit List</a>
+					</div></li> --%>
+
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Banner</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.BANNER_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Banner</a> <a
+							class="dropdown-item" href="<%=ORSView.BANNER_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Banner List</a>
+					</div></li> --%>
+
+				<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Finance</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.FINANCE_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Finance</a> <a
+							class="dropdown-item" href="<%=ORSView.FINANCE_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Finance List</a>
 					</div></li>
 
 				<%
