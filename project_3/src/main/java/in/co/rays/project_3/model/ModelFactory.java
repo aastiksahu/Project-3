@@ -29,6 +29,23 @@ public final class ModelFactory {
 		return mFactory;
 	}
 	
+	public SettingsModelInt getSettingsModel() {
+
+		SettingsModelInt settingsModel = (SettingsModelInt) modelCache.get("settingsModel");
+		if (settingsModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				settingsModel = new SettingsModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				settingsModel = new SettingsModelHibImpl();
+			}
+			modelCache.put("settingsModel", settingsModel);
+		}
+
+		return settingsModel;
+	}
+	
 	public FinanceModelInt getFinanceModel() {
 
 		FinanceModelInt financeModel = (FinanceModelInt) modelCache.get("financeModel");

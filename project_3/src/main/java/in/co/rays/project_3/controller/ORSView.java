@@ -17,6 +17,15 @@ public interface ORSView {
 	public String ERROR_VIEW = PAGE_FOLDER + "/ErrorView404.jsp";
 	
 	
+	public String SETTINGS_VIEW = PAGE_FOLDER + "/SettingsView.jsp";
+
+	public String SETTINGS_LIST_VIEW = PAGE_FOLDER + "/SettingsListView.jsp";
+	
+	public String SETTINGS_CTL = APP_CONTEXT + "/ctl/SettingsCtl";
+
+	public String SETTINGS_LIST_CTL = APP_CONTEXT + "/ctl/SettingsListCtl";
+	
+	
 	public String FINANCE_VIEW = PAGE_FOLDER + "/FinanceView.jsp";
 
 	public String FINANCE_LIST_VIEW = PAGE_FOLDER + "/FinanceListView.jsp";

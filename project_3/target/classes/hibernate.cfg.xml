@@ -16,6 +16,7 @@
 
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
+		
 
 
 		<!-- <property name="hibernate.cache.provider_class"> org.hibernate.cache.EhCacheProvider</property> 
@@ -59,5 +60,7 @@
 			<mapping resource="in/co/rays/project_3/hbm/BannerDTO.hbm.xml" />
 			
 			<mapping resource="in/co/rays/project_3/hbm/FinanceDTO.hbm.xml" />
+			
+			<mapping resource="in/co/rays/project_3/hbm/SettingsDTO.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

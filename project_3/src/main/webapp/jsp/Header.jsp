@@ -255,7 +255,7 @@
 							class="fa fa-user-friends"></i>Banner List</a>
 					</div></li> --%>
 
-				<li class="nav-item dropdown" style="padding-left: 5px;"><a
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <font style="color: white;">Finance</font>
@@ -265,6 +265,18 @@
 							class="fa fa-user-circle"></i>Add Finance</a> <a
 							class="dropdown-item" href="<%=ORSView.FINANCE_LIST_CTL%>"><i
 							class="fa fa-user-friends"></i>Finance List</a>
+					</div></li> --%>
+
+				<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Settings</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.SETTINGS_CTL%>"><i
+							class="fa fa-user-circle"></i>Add Setting</a> <a
+							class="dropdown-item" href="<%=ORSView.SETTINGS_LIST_CTL%>"><i
+							class="fa fa-user-friends"></i>Setting List</a>
 					</div></li>
 
 				<%
