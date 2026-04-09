@@ -29,6 +29,57 @@ public final class ModelFactory {
 		return mFactory;
 	}
 	
+	public EventRegistrationModelInt getEventRegistrationModel() {
+
+		EventRegistrationModelInt eventRegistrationModel = (EventRegistrationModelInt) modelCache.get("eventRegistrationModel");
+		if (eventRegistrationModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				eventRegistrationModel = new EventRegistrationModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				eventRegistrationModel = new EventRegistrationModelHibImpl();
+			}
+			modelCache.put("eventRegistrationModel", eventRegistrationModel);
+		}
+
+		return eventRegistrationModel;
+	}
+	
+	public VisitorModelInt getVisitorModel() {
+
+		VisitorModelInt visitorModel = (VisitorModelInt) modelCache.get("visitorModel");
+		if (visitorModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				visitorModel = new VisitorModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				visitorModel = new VisitorModelHibImpl();
+			}
+			modelCache.put("visitorModel", visitorModel);
+		}
+
+		return visitorModel;
+	}
+	
+	public PolicyModelInt getPolicyModel() {
+
+		PolicyModelInt policyModel = (PolicyModelInt) modelCache.get("policyModel");
+		if (policyModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				policyModel = new PolicyModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				policyModel = new PolicyModelHibImpl();
+			}
+			modelCache.put("policyModel", policyModel);
+		}
+
+		return policyModel;
+	}
+	
 	public SettingsModelInt getSettingsModel() {
 
 		SettingsModelInt settingsModel = (SettingsModelInt) modelCache.get("settingsModel");

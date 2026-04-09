@@ -24,7 +24,7 @@ public class UserModelTest {
 		// findByPKTest();
 		// findByLoginTest();
 		// listTest();
-		// searchTest();
+		 searchTest();
 	}
 
 	private static void findByLoginTest() throws ApplicationException {

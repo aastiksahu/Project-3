@@ -45,6 +45,19 @@ public class DataValidator {
 		}
 	} 
 	
+	public static boolean isDouble(String val){
+	    if(isNotNull(val)){
+	        try{
+	            double d = Double.parseDouble(val);
+	            return true;
+	        }catch(NumberFormatException e){
+	            return false;
+	        }
+	    }else{
+	        return false;
+	    }
+	}
+	
 //	public static boolean isEmail(String val){
 //			String emailreg="^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9+)*(\\.[A-Za-z]{2,})$";
 //			

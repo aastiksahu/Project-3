@@ -81,13 +81,27 @@ return 0;
 */
 
 public static Long getLong(String val) {
-System.out.println("........in dataUtility..........."+val);
 if (DataValidator.isLong(val)) {
-System.out.println("........in dataUtility"+val+",,,,,,"+Long.parseLong(val));
 return Long.parseLong(val);
 } else {
 return (long) 0;
 }
+}
+
+/**
+*
+* Converts String InTo Double
+*
+* @param val
+* :value
+* @return Double
+*/
+public static Double getDouble(String val) {
+    if (DataValidator.isDouble(val)) {
+        return Double.parseDouble(val);
+    } else {
+        return (double) 0;
+    }
 }
 
 /**

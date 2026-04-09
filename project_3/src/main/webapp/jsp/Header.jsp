@@ -267,16 +267,53 @@
 							class="fa fa-user-friends"></i>Finance List</a>
 					</div></li> --%>
 
-				<li class="nav-item dropdown" style="padding-left: 5px;"><a
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <font style="color: white;">Settings</font>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="<%=ORSView.SETTINGS_CTL%>"><i
-							class="fa fa-user-circle"></i>Add Setting</a> <a
+							class="fa fa-cog"></i>Add Setting</a> <a
 							class="dropdown-item" href="<%=ORSView.SETTINGS_LIST_CTL%>"><i
-							class="fa fa-user-friends"></i>Setting List</a>
+							class="fa fa-cogs"></i>Setting List</a>
+					</div></li> --%>
+
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Policy</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.POLICY_CTL%>"><i
+							class="fa fa-cog"></i>Add Policy</a> <a class="dropdown-item"
+							href="<%=ORSView.POLICY_LIST_CTL%>"><i class="fa fa-cogs"></i>Policy
+							List</a>
+					</div></li> --%>
+
+				<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Visitor</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.VISITOR_CTL%>"><i
+							class="fa fa-cog"></i>Add Visitor</a> <a class="dropdown-item"
+							href="<%=ORSView.VISITOR_LIST_CTL%>"><i class="fa fa-cogs"></i>Visitor
+							List</a>
+					</div></li>
+					 --%>
+					
+					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Event Registration</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.EVENT_REGISTRATION_CTL%>"><i
+							class="fa fa-cog"></i>Add Visitor</a> <a class="dropdown-item"
+							href="<%=ORSView.EVENT_REGISTRATION_LIST_CTL%>"><i class="fa fa-cogs"></i>Visitor
+							List</a>
 					</div></li>
 
 				<%

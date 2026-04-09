@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.co.rays.project_3.dto.BaseDTO;
 import in.co.rays.project_3.dto.FinanceDTO;
+import in.co.rays.project_3.dto.VisitorDTO;
 import in.co.rays.project_3.exception.ApplicationException;
 import in.co.rays.project_3.model.FinanceModelInt;
 import in.co.rays.project_3.model.ModelFactory;
@@ -33,17 +34,19 @@ public class FinanceListCtl extends BaseCtl{
 
 	protected BaseDTO populateDTO(HttpServletRequest request) {
 
-		FinanceDTO dto = new FinanceDTO();
+		VisitorDTO dto = new VisitorDTO();
 
-//		dto.setId(DataUtility.getLong(request.getParameter("id")));
+		dto.setId(DataUtility.getLong(request.getParameter("id")));
 
-		dto.setAppliedDate(DataUtility.getDate(request.getParameter("appliedDate")));
+		dto.setVisitorPassCode(DataUtility.getString(request.getParameter("visitorPassCode")));
+		
+		dto.setVisitorName(DataUtility.getString(request.getParameter("visitorName")));
 
-		dto.setLoanAmount(DataUtility.getString(request.getParameter("loanAmount")));
+		dto.setPurpose(DataUtility.getString(request.getParameter("purpose")));
+		
+		dto.setVisitDate(DataUtility.getDate(request.getParameter("visitDate")));
 
-		dto.setTenure(DataUtility.getString(request.getParameter("tenure")));
-
-		dto.setStatus(DataUtility.getString(request.getParameter("status")));
+		dto.setVisitStatus(DataUtility.getString(request.getParameter("visitStatus")));
 
 		populateBean(dto, request);
 

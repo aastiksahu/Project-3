@@ -62,5 +62,11 @@
 			<mapping resource="in/co/rays/project_3/hbm/FinanceDTO.hbm.xml" />
 			
 			<mapping resource="in/co/rays/project_3/hbm/SettingsDTO.hbm.xml" />
+			
+			<mapping resource="in/co/rays/project_3/hbm/PolicyDTO.hbm.xml" />
+			
+			<mapping resource="in/co/rays/project_3/hbm/VisitorDTO.hbm.xml" />
+			
+			<mapping resource="in/co/rays/project_3/hbm/EventRegistrationDTO.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

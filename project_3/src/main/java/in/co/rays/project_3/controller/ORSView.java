@@ -17,6 +17,33 @@ public interface ORSView {
 	public String ERROR_VIEW = PAGE_FOLDER + "/ErrorView404.jsp";
 	
 	
+	public String EVENT_REGISTRATION_VIEW = PAGE_FOLDER + "/EventRegistrationView.jsp";
+
+	public String EVENT_REGISTRATION_LIST_VIEW = PAGE_FOLDER + "/EventRegistrationListView.jsp";
+	
+	public String EVENT_REGISTRATION_CTL = APP_CONTEXT + "/ctl/EventRegistrationCtl";
+
+	public String EVENT_REGISTRATION_LIST_CTL = APP_CONTEXT + "/ctl/EventRegistrationListCtl";
+	
+	
+	public String VISITOR_VIEW = PAGE_FOLDER + "/VisitorView.jsp";
+
+	public String VISITOR_LIST_VIEW = PAGE_FOLDER + "/VisitorListView.jsp";
+	
+	public String VISITOR_CTL = APP_CONTEXT + "/ctl/VisitorCtl";
+
+	public String VISITOR_LIST_CTL = APP_CONTEXT + "/ctl/VisitorListCtl";
+	
+	
+	public String POLICY_VIEW = PAGE_FOLDER + "/PolicyView.jsp";
+
+	public String POLICY_LIST_VIEW = PAGE_FOLDER + "/PolicyListView.jsp";
+	
+	public String POLICY_CTL = APP_CONTEXT + "/ctl/PolicyCtl";
+
+	public String POLICY_LIST_CTL = APP_CONTEXT + "/ctl/PolicyListCtl";
+	
+	
 	public String SETTINGS_VIEW = PAGE_FOLDER + "/SettingsView.jsp";
 
 	public String SETTINGS_LIST_VIEW = PAGE_FOLDER + "/SettingsListView.jsp";

@@ -161,10 +161,8 @@ public class LoginCtl extends BaseCtl {
 				}
 
 			} catch (ApplicationException e) {
-				log.error(e);
-				System.out.println(e.getMessage());
-				
-				ServletUtility.setErrorMessage("DataBase Not Found", request);
+				log.error(e);	
+				ServletUtility.setErrorMessage(e.getMessage(), request);
 				ServletUtility.forward(getView(), request, response);
 				return;
 			}

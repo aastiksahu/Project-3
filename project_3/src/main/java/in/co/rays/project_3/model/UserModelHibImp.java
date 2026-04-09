@@ -12,6 +12,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.JDBCConnectionException;
 
 import in.co.rays.project_3.dto.UserDTO;
 import in.co.rays.project_3.exception.ApplicationException;
@@ -60,7 +61,8 @@ public class UserModelHibImp implements UserModelInt {
 				tx.rollback();
 
 			}
-			throw new ApplicationException("Exception in User Add " + e.getMessage());
+			HibDataSource.handleException(e);
+			throw new ApplicationException("Exception in User Add" + e.getMessage());
 		} finally {
 			session.close();
 		}
@@ -143,8 +145,7 @@ public class UserModelHibImp implements UserModelInt {
 				dto = (UserDTO) list.get(0);
 			}
 		} catch (HibernateException e) {
-			e.printStackTrace();
-			throw new ApplicationException("Exception in getting User by Login " + e.getMessage());
+			HibDataSource.handleException(e);
 
 		} finally {
 			session.close();
@@ -265,8 +266,12 @@ public class UserModelHibImp implements UserModelInt {
 				dto = (UserDTO) list.get(0);
 			}
 
-		} catch (HibernateException e) {
-			throw new ApplicationException("Database connection problem. Please try again later.");
+		} catch (JDBCConnectionException e) {
+
+			System.out.println(" Database connection problem");
+			e.printStackTrace();
+			HibDataSource.handleException(e);
+			throw new ApplicationException("Exception is authenticate");
 
 		} finally {
 			if (session != null) {

@@ -119,7 +119,7 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-user grey-text" style="font-size: 1rem;"></i>
+												<i class="fa fa-cog grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
 										<input type="text" class="form-control" name="settingName"
@@ -136,7 +136,7 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-user-circle grey-text"
+												<i class="fa fa-cog grey-text"
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
@@ -153,7 +153,7 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-user-circle grey-text"
+												<i class="fa fa-cog grey-text"
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
@@ -170,11 +170,11 @@ i.css {
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
-												<i class="fa fa-venus-mars grey-text"
+												<i class="fa fa-cog grey-text"
 													style="font-size: 1rem;"></i>
 											</div>
 										</div>
-										<div><%=HTMLUtility.getList("status", String.valueOf(dto.getStatus()), map)%></div>
+					 					<div class="form-control p-0"><%=HTMLUtility.getList("status", String.valueOf(dto.getStatus()), map)%></div>
 
 									</div>
 									<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("status", request)%></font></br>
