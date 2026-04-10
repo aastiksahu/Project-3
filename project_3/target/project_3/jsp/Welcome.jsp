@@ -9,14 +9,13 @@
 <style>
 .p4 {
 	background-image:
-		url('<%=ORSView.APP_CONTEXT%>/img/WallpaperDog-988052.jpg');
+		url('<%=ORSView.APP_CONTEXT%>/img/360_F_585974277_Ge67xpa5Ly7SXmQ72A11CGP32HyU8wgC.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
 .cl {
-	font-family: Lucida Calligraphy;
-	font-family: Monotype Corsiva;
+	
 	font-family: Footlight MT Light;
 }
 </style>
@@ -28,7 +27,7 @@
 	</div>
 	<div class="text-cs1">
 		<center>
-			<h1 style="padding-top: 20%; color: white">
+			<h1 style="padding-top: 80%; color: white">
 				<b class="cl">" Welcome to online result system "</b>
 			</h1>
 		</center>

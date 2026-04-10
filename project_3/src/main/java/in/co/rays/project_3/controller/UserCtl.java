@@ -219,16 +219,17 @@ public class UserCtl extends BaseCtl {
 
 		if (OP_SAVE.equalsIgnoreCase(op)){
 
-			log.info("Patient save operation started");
-
 			UserDTO dto = (UserDTO) populateDTO(request);
 
 			try {
 				model.add(dto);
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setSuccessMessage("User Successfully Saved", request);
+			}catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (ApplicationException e) {
-				log.error("Unexpected error while saving User", e);
 				ServletUtility.setErrorMessage(e.getMessage(), request);
 				ServletUtility.forward(getView(), request, response);
 				return;

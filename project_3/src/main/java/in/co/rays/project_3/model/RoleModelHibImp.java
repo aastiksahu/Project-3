@@ -116,7 +116,7 @@ public class RoleModelHibImp implements RoleModelInt{
 			}
 			list = criteria.list();
 		} catch (HibernateException e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception : Exception in  role list");
 		} finally {
 			session.close();

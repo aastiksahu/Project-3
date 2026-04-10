@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -42,9 +43,12 @@ public class JasperCtl extends BaseCtl {
 		try {
 
 			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
+			
+			InputStream jrxmlStream = getClass().getClassLoader().getResourceAsStream("Report/proj_03.jrxml");
+			JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlStream);
 
-			/* Compilation of jrxml file */
-			JasperReport jasperReport = JasperCompileManager.compileReport(rb.getString("jasperctl"));
+//			/* Compilation of jrxml file */
+//			JasperReport jasperReport = JasperCompileManager.compileReport(rb.getString("jasperctl"));
 
 			HttpSession session = request.getSession(true);
 

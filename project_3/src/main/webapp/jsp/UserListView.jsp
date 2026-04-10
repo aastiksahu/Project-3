@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="in.co.rays.project_3.model.ModelFactory"%>
@@ -19,14 +20,14 @@
 	src="<%=ORSView.APP_CONTEXT%>/js/CheckBox11.js"></script>
 <style>
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/8a36f1b33b436275a8424ab0d7c307da.jpg');
-	
+	background-image:
+		url('<%=ORSView.APP_CONTEXT%>/img/8a36f1b33b436275a8424ab0d7c307da.jpg');
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 85px;
-	
-    /*  background-size: 100%; */
+
+	/*  background-size: 100%; */
 }
 
 .p1 {
@@ -55,14 +56,20 @@
 				int pageNo = ServletUtility.getPageNo(request);
 				int pageSize = ServletUtility.getPageSize(request);
 				int index = ((pageNo - 1) * pageSize) + 1;
-				int nextPageSize = DataUtility.getInt(request.getAttribute("nextListSize").toString());
+				/* int nextPageSize = DataUtility.getInt(request.getAttribute("nextListSize").toString()); */
+				int nextPageSize = 0;
+				if (request.getAttribute("nextListSize") != null) {
+					nextPageSize = DataUtility.getInt(request.getAttribute("nextListSize").toString());
+				}
 				RoleDTO rbean1 = new RoleDTO();
 				RoleModelInt rmodel = ModelFactory.getInstance().getRoleModel();
 
 				List list = ServletUtility.getList(request);
-
+				if (list == null) {
+				    list = new ArrayList();
+				}
 				Iterator<UserDTO> it = list.iterator();
-				if (list.size() != 0) {
+				if (list != null && list.size() != 0) {
 			%>
 			<center>
 				<h1 class="text-dark font-weight-bold pt-3">

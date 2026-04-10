@@ -2,6 +2,7 @@ package in.co.rays.project_3.util;
 
 import java.util.ResourceBundle;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,7 +19,7 @@ import in.co.rays.project_3.exception.ApplicationException;
 public class HibDataSource {
 	private static SessionFactory sessionFactory = null;
 
-	public static SessionFactory getSessionFactory() {
+	public static SessionFactory getSessionFactory() throws ApplicationException {
 
 		if (sessionFactory == null) {
 
@@ -28,17 +29,25 @@ public class HibDataSource {
 			if (jdbcUrl == null || jdbcUrl.trim().isEmpty()) {
 				jdbcUrl = rb.getString("url");
 			}
+			try {
+				sessionFactory = new Configuration().configure().setProperty("hibernate.connection.url", jdbcUrl)
+						.buildSessionFactory();
+			} catch (Exception e) {
 
-			sessionFactory = new Configuration().configure().setProperty("hibernate.connection.url", jdbcUrl)
-					.buildSessionFactory();
+				throw new RuntimeException("Database Server is down. Please try after some time...");
+			}
 		}
 		return sessionFactory;
 	}
 
-	public static Session getSession() {
+	public static Session getSession() throws HibernateException, ApplicationException {
+		try {
+			Session session = getSessionFactory().openSession();
+			return session;
+		} catch (Exception e) {
 
-		Session session = getSessionFactory().openSession();
-		return session;
+			throw new RuntimeException("Database Server is down. Please try after some time...");
+		}
 
 	}
 
@@ -52,6 +61,6 @@ public class HibDataSource {
 	public static void handleException(Exception e) throws ApplicationException {
 
 		// DB down / connection issue
-		throw new ApplicationException("Database Server is down. Please try after some time...");
+		throw new RuntimeException("Database Server is down. Please try after some time...");
 	}
 }

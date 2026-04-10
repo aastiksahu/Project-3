@@ -239,6 +239,7 @@ public class UserModelHibImp implements UserModelInt {
 			}
 			list = (ArrayList<UserDTO>) criteria.list();
 		} catch (HibernateException e) {
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in user search");
 		} finally {
 			session.close();
