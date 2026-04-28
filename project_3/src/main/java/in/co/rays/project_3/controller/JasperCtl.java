@@ -66,7 +66,7 @@ public class JasperCtl extends BaseCtl {
 			// JasperCompileManager.compileReport(rb.getString("jasperctl"));
 
 			/* here you can mount the jasper folder to docker using yml file */
-			String reportPath = System.getenv("JASPER_FILE");
+			String reportPath = System.getenv("jasper_file");
 
 			// fallback to properties file if ENV not set
 			if (reportPath == null || reportPath.isEmpty()) {
