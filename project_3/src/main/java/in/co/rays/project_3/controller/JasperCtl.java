@@ -1,5 +1,6 @@
 package in.co.rays.project_3.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +73,15 @@ public class JasperCtl extends BaseCtl {
 				reportPath = rb.getString("jasperctl");
 			}
 
-			JasperReport jasperReport = JasperCompileManager.compileReport(reportPath);
+			File file = new File(reportPath);
+
+			System.out.println("Jasper Path = " + file.getAbsolutePath());
+
+			if (!file.exists()) {
+			    throw new RuntimeException("Report NOT FOUND at: " + file.getAbsolutePath());
+			}
+
+			JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 
 			HttpSession session = request.getSession(true);
 

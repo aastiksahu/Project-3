@@ -23,7 +23,7 @@ services:
     networks:
       - mynetwork
     depends_on:
-      - mysql   
+      - mysql
     environment:
       - DATABASE_URL=jdbc:mysql://mysql:3306/project_3
       - JASPER_FILE=/app/reports/proj_03.jrxml
