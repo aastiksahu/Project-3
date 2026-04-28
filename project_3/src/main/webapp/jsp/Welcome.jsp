@@ -9,7 +9,7 @@
 <style>
 .p4 {
 	background-image:
-		url('<%=ORSView.APP_CONTEXT%>/img/360_F_585974277_Ge67xpa5Ly7SXmQ72A11CGP32HyU8wgC.jpg');
+		url('<%=ORSView.APP_CONTEXT%>/img/WelcomeImage.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
