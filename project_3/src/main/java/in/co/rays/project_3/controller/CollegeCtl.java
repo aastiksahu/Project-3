@@ -107,7 +107,9 @@ public class CollegeCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);
@@ -147,7 +149,9 @@ public class CollegeCtl extends BaseCtl {
 				}
 
 				ServletUtility.setDto(dto, request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (ApplicationException e) {
 				e.printStackTrace();
 				log.error(e);

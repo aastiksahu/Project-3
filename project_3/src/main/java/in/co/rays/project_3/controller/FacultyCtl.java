@@ -180,6 +180,10 @@ public class FacultyCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error(e);
@@ -217,6 +221,10 @@ public class FacultyCtl extends BaseCtl {
 					try {
 						model.add(dto);
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
+					} catch (RuntimeException e) {
+						ServletUtility.setErrorMessage(e.getMessage(), request);
+						ServletUtility.forward(getView(), request, response);
+						return;
 					} catch (ApplicationException e) {
 						log.error(e);
 						ServletUtility.handleException(e, request, response);
@@ -228,7 +236,10 @@ public class FacultyCtl extends BaseCtl {
 
 				}
 				ServletUtility.setDto(dto, request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);

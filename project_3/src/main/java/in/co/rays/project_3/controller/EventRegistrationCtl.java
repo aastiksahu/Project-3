@@ -59,7 +59,7 @@ public class EventRegistrationCtl extends BaseCtl {
 			request.setAttribute("registrationDate", PropertyReader.getValue("error.date", "Registration Date"));
 			pass = false;
 		}
-		
+
 		return pass;
 
 	}
@@ -71,11 +71,11 @@ public class EventRegistrationCtl extends BaseCtl {
 		dto.setId(DataUtility.getLong(request.getParameter("id")));
 
 		dto.setParticipantName(DataUtility.getString(request.getParameter("participantName")));
-		
+
 		dto.setEventName(DataUtility.getString(request.getParameter("eventName")));
 
 		dto.setEmail(DataUtility.getString(request.getParameter("email")));
-		
+
 		dto.setRegistrationDate(DataUtility.getDate(request.getParameter("registrationDate")));
 
 		populateBean(dto, request);
@@ -99,6 +99,10 @@ public class EventRegistrationCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (Exception e) {
 				e.printStackTrace();
 				ServletUtility.handleException(e, request, response);
@@ -132,6 +136,10 @@ public class EventRegistrationCtl extends BaseCtl {
 					try {
 						model.add(dto);
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
+					} catch (RuntimeException e) {
+						ServletUtility.setErrorMessage(e.getMessage(), request);
+						ServletUtility.forward(getView(), request, response);
+						return;
 					} catch (ApplicationException e) {
 						ServletUtility.handleException(e, request, response);
 						return;
@@ -142,7 +150,10 @@ public class EventRegistrationCtl extends BaseCtl {
 
 				}
 				ServletUtility.setDto(dto, request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (ApplicationException e) {
 				ServletUtility.handleException(e, request, response);
 				return;
@@ -167,9 +178,5 @@ public class EventRegistrationCtl extends BaseCtl {
 	protected String getView() {
 		return ORSView.EVENT_REGISTRATION_VIEW;
 	}
-
-
-
-
 
 }

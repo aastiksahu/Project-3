@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -95,7 +96,15 @@ public class CollegeListCtl extends BaseCtl {
 			ServletUtility.setPageNo(pageNo, request);
 			ServletUtility.setPageSize(pageSize, request);
 			ServletUtility.forward(getView(), request, response);
+		} catch (RuntimeException e) {
 
+			ServletUtility.setErrorMessage(e.getMessage(), request);
+			ServletUtility.setList(new ArrayList(), request);
+			ServletUtility.setPageNo(pageNo, request);
+			ServletUtility.setPageSize(pageSize, request);
+			request.setAttribute("nextListSize", 0);
+			ServletUtility.forward(getView(), request, response);
+			return;
 		} catch (ApplicationException e) {
 			log.error(e);
 			ServletUtility.handleException(e, request, response);
@@ -178,7 +187,15 @@ public class CollegeListCtl extends BaseCtl {
 			ServletUtility.setPageNo(pageNo, request);
 			ServletUtility.setPageSize(pageSize, request);
 			ServletUtility.forward(getView(), request, response);
+		} catch (RuntimeException e) {
 
+			ServletUtility.setErrorMessage(e.getMessage(), request);
+			ServletUtility.setList(new ArrayList(), request);
+			ServletUtility.setPageNo(pageNo, request);
+			ServletUtility.setPageSize(pageSize, request);
+			request.setAttribute("nextListSize", 0);
+			ServletUtility.forward(getView(), request, response);
+			return;
 		} catch (ApplicationException e) {
 			log.error(e);
 			ServletUtility.handleException(e, request, response);

@@ -17,6 +17,24 @@ public interface ORSView {
 	public String ERROR_VIEW = PAGE_FOLDER + "/ErrorView404.jsp";
 	
 	
+	public String BLOCK_VIEW = PAGE_FOLDER + "/BlockView.jsp";
+
+	public String BLOCK_LIST_VIEW = PAGE_FOLDER + "/BlockListView.jsp";
+	
+	public String BLOCK_CTL = APP_CONTEXT + "/ctl/BlockCtl";
+
+	public String BLOCK_LIST_CTL = APP_CONTEXT + "/ctl/BlockListCtl";
+	
+	
+	public String FEATURE_VIEW = PAGE_FOLDER + "/FeatureView.jsp";
+
+	public String FEATURE_LIST_VIEW = PAGE_FOLDER + "/FeatureListView.jsp";
+	
+	public String FEATURE_CTL = APP_CONTEXT + "/ctl/FeatureCtl";
+
+	public String FEATURE_LIST_CTL = APP_CONTEXT + "/ctl/FeatureListCtl";
+	
+	
 	public String EVENT_REGISTRATION_VIEW = PAGE_FOLDER + "/EventRegistrationView.jsp";
 
 	public String EVENT_REGISTRATION_LIST_VIEW = PAGE_FOLDER + "/EventRegistrationListView.jsp";

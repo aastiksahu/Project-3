@@ -51,6 +51,7 @@ public class MarksheetModelHibImp implements MarksheetModelInt {
 			if (tx != null) {
 				tx.rollback();
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in marksheet Add " + e.getMessage());
 		} finally {
 			session.close();
@@ -190,6 +191,7 @@ public class MarksheetModelHibImp implements MarksheetModelInt {
 			list = criteria.list();
 		} catch (Exception e) {
 			e.printStackTrace();
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Marksheet Search " + e.getMessage());
 		} finally {
 			session.close();
@@ -229,7 +231,7 @@ public class MarksheetModelHibImp implements MarksheetModelInt {
 
 			}
 		} catch (Exception e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in getting Marksheet by pk" + e.getMessage());
 
 		} finally {
@@ -254,7 +256,7 @@ public class MarksheetModelHibImp implements MarksheetModelInt {
 			list = query.list();
 
 		} catch (Exception e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in  marksheet list" + e.getMessage());
 		} finally {
 			session.close();

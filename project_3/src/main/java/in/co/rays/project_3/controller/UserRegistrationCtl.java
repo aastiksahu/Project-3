@@ -155,10 +155,12 @@ public class UserRegistrationCtl extends BaseCtl {
 			UserDTO dto = (UserDTO) populateDTO(request);
 			try {
 				userModel.add(dto);
-				//long pk = userModel.registerUser(dto);
+				// long pk = userModel.registerUser(dto);
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setSuccessMessage("Registration successfully", request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setErrorMessage("Login id already exists", request);

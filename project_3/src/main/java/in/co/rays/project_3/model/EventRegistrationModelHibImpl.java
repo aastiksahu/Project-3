@@ -34,6 +34,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 				tx.rollback();
 
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Event Registration Add " + e.getMessage());
 		} finally {
 			session.close();
@@ -55,6 +56,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 			if (tx != null) {
 				tx.rollback();
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Event Registration Delete" + e.getMessage());
 		} finally {
 			session.close();
@@ -81,6 +83,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 			if (tx != null) {
 				tx.rollback();
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Event Registration update" + e.getMessage());
 		} finally {
 			session.close();
@@ -108,7 +111,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 			list = criteria.list();
 
 		} catch (HibernateException e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception : Exception in  Event Registration list");
 		} finally {
 			session.close();
@@ -154,6 +157,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 			list = criteria.list();
 		} catch (HibernateException e) {
 			e.printStackTrace();
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Event Registration search");
 		} finally {
 			session.close();
@@ -172,7 +176,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 			dto = (EventRegistrationDTO) session.get(EventRegistrationDTO.class, pk);
 			System.out.println(dto);
 		} catch (HibernateException e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception : Exception in getting Event Registration by pk");
 		} finally {
 			session.close();
@@ -194,7 +198,7 @@ public class EventRegistrationModelHibImpl implements EventRegistrationModelInt 
 				dto = (EventRegistrationDTO) list.get(0);
 			}
 		} catch (HibernateException e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in getting Event Registration by Login " + e.getMessage());
 
 		} finally {

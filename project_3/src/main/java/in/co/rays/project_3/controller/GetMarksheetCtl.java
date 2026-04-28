@@ -55,7 +55,7 @@ public class GetMarksheetCtl extends BaseCtl {
 		dto.setId(DataUtility.getLong(request.getParameter("id")));
 
 		dto.setRollNo(DataUtility.getString(request.getParameter("rollNo")));
-		
+
 		dto.setName(DataUtility.getString(request.getParameter("name")));
 
 		dto.setPhysics(DataUtility.getInt(request.getParameter("physics")));
@@ -63,7 +63,7 @@ public class GetMarksheetCtl extends BaseCtl {
 		dto.setChemistry(DataUtility.getInt(request.getParameter("chemistry")));
 
 		dto.setMaths(DataUtility.getInt(request.getParameter("maths")));
-		
+
 		populateBean(dto, request);
 
 		return dto;
@@ -111,6 +111,10 @@ public class GetMarksheetCtl extends BaseCtl {
 				log.equals(e);
 				ServletUtility.handleException(e, request, response);
 				return;
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+
 			}
 		}
 		ServletUtility.forward(getView(), request, response);

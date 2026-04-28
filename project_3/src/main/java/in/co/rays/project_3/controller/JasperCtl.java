@@ -1,7 +1,6 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -32,23 +31,48 @@ import net.sf.jasperreports.engine.JasperReport;
 @WebServlet(name = "JasperCtl", urlPatterns = { "/ctl/JasperCtl" })
 public class JasperCtl extends BaseCtl {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-
 			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
-			
-			InputStream jrxmlStream = getClass().getClassLoader().getResourceAsStream("Report/proj_03.jrxml");
-			JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlStream);
 
-//			/* Compilation of jrxml file */
-//			JasperReport jasperReport = JasperCompileManager.compileReport(rb.getString("jasperctl"));
+			/*
+			 * This is used when u create a "Report" folder in "src/main/webapp" and then
+			 * put your jasper report in that folder
+			 */
+			// String path =
+			// request.getServletContext().getRealPath("/Report/proj_03.jrxml");
+			// JasperReport jasperReport = JasperCompileManager.compileReport(path);
+
+			/*
+			 * This is used when u create a "Report" folder in
+			 * "Java Resources - src/main/resources" and then put your jasper report in that
+			 * folder
+			 */
+			// InputStream jrxmlStream =
+			// getClass().getClassLoader().getResourceAsStream("Report/proj_03.jrxml");
+			// JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlStream);
+
+			/*
+			 * This is used when u put the path of your jasper report in "system.properties"
+			 * file.
+			 */
+			/* Compilation of jrxml file */
+			// JasperReport jasperReport =
+			// JasperCompileManager.compileReport(rb.getString("jasperctl"));
+
+			/* here you can mount the jasper folder to docker using yml file */
+			String reportPath = System.getenv("JASPER_FILE");
+
+			// fallback to properties file if ENV not set
+			if (reportPath == null || reportPath.isEmpty()) {
+				reportPath = rb.getString("jasperctl");
+			}
+
+			JasperReport jasperReport = JasperCompileManager.compileReport(reportPath);
 
 			HttpSession session = request.getSession(true);
 
@@ -83,12 +107,13 @@ public class JasperCtl extends BaseCtl {
 			response.getOutputStream().flush();
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 	}
 

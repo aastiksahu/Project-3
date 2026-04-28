@@ -304,7 +304,7 @@
 					</div></li>
 					 --%>
 					
-					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					<%-- <li class="nav-item dropdown" style="padding-left: 5px;"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <font style="color: white;">Event Registration</font>
@@ -313,6 +313,30 @@
 						<a class="dropdown-item" href="<%=ORSView.EVENT_REGISTRATION_CTL%>"><i
 							class="fa fa-cog"></i>Add Visitor</a> <a class="dropdown-item"
 							href="<%=ORSView.EVENT_REGISTRATION_LIST_CTL%>"><i class="fa fa-cogs"></i>Visitor
+							List</a>
+					</div></li> --%>
+					
+					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Feature</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.FEATURE_CTL%>"><i
+							class="fa fa-cog"></i>Add Feature</a> <a class="dropdown-item"
+							href="<%=ORSView.FEATURE_LIST_CTL%>"><i class="fa fa-cogs"></i>Feature
+							List</a>
+					</div></li>
+					
+					<li class="nav-item dropdown" style="padding-left: 5px;"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Block</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.BLOCK_CTL%>"><i
+							class="fa fa-cog"></i>Add Block</a> <a class="dropdown-item"
+							href="<%=ORSView.BLOCK_LIST_CTL%>"><i class="fa fa-cogs"></i>Block
 							List</a>
 					</div></li>
 

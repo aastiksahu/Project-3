@@ -36,11 +36,11 @@ i.css {
 .p4 {
 	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wp3228730.jpg');
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 75px;
-	
-/* 	background-size: 100%; */
+
+	/* 	background-size: 100%; */
 }
 </style>
 </head>
@@ -128,7 +128,23 @@ i.css {
 												<i class="fa fa-envelope grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
+										<%
+											if (l != null && !l.isEmpty()) {
+										%>
+
 										<%=HTMLUtility.getList("courseId", String.valueOf(dto.getCourseId()), l)%>
+
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
 									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("courseId", request)%></font></br>
@@ -142,7 +158,21 @@ i.css {
 												<i class="fa fa-book grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
+										<%
+											if (li != null && !li.isEmpty()) {
+										%>
 										<%=HTMLUtility.getList("subjectId", String.valueOf(dto.getSubId()), li)%>
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
 									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("subjectId", request)%></font></br>
@@ -218,7 +248,7 @@ i.css {
 
 								</br>
 								<%
-									if (dto.getCourseName()!= null) {
+									if (dto.getCourseName() != null) {
 								%>
 								<div class="text-center">
 									<input type="submit" name="operation"

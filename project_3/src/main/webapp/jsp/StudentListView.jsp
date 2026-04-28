@@ -24,12 +24,13 @@
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/8a36f1b33b436275a8424ab0d7c307da.jpg');
+	background-image:
+		url('<%=ORSView.APP_CONTEXT%>/img/8a36f1b33b436275a8424ab0d7c307da.jpg');
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 85px;
-	
+
 	/* background-size: 100%; */
 }
 </style>
@@ -45,27 +46,12 @@
 
 			<jsp:useBean id="dto" class="in.co.rays.project_3.dto.StudentDTO"
 				scope="request"></jsp:useBean>
-			<%
-				List list1 = (List) request.getAttribute("collegeList");
-			%>
-
-			<%
-				int pageNo = ServletUtility.getPageNo(request);
-				int pageSize = ServletUtility.getPageSize(request);
-
-				int index = ((pageNo - 1) * pageSize) + 1;
-				int nextPageSize = DataUtility.getInt(request.getAttribute("nextListSize").toString());
-
-				List list = ServletUtility.getList(request);
-
-				CollegeDTO cbean1 = new CollegeDTO();
-				CollegeModelInt cmodel = ModelFactory.getInstance().getCollegeModel();
-				Iterator<StudentDTO> it = list.iterator();
-				if (list.size() != 0) {
-			%>
 
 			<center>
-				<h1 class="text-primary font-weight-bold pt-3"><font color="black">Student List</h1></font>
+				<h1 class="text-primary font-weight-bold pt-3">
+					<font color="black">Student List 
+				</h1>
+				</font>
 			</center>
 
 			<div class="row">
@@ -105,6 +91,26 @@
 				%>
 				<div class="col-md-4"></div>
 			</div>
+			<%
+				List list1 = (List) request.getAttribute("collegeList");
+			%>
+
+			<%
+				int pageNo = ServletUtility.getPageNo(request);
+				int pageSize = ServletUtility.getPageSize(request);
+
+				int index = ((pageNo - 1) * pageSize) + 1;
+				int nextPageSize = DataUtility.getInt(request.getAttribute("nextListSize").toString());
+
+				List list = ServletUtility.getList(request);
+
+				CollegeDTO cbean1 = new CollegeDTO();
+				CollegeModelInt cmodel = ModelFactory.getInstance().getCollegeModel();
+				Iterator<StudentDTO> it = list.iterator();
+				if (list.size() != 0) {
+			%>
+
+
 			<div class="row">
 
 				<div class="col-sm-2"></div>
@@ -204,9 +210,7 @@
 				if (list.size() == 0) {
 					System.out.println("user list view list.size==0");
 			%>
-			<center>
-				<h1 class="text-primary font-weight-bold pt-3">Student List</h1>
-			</center>
+			
 			</br> </br>
 			<div style="padding-left: 48%;">
 				<input type="submit" name="operation" class="btn btn-primary btn-md"

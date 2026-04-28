@@ -84,7 +84,9 @@ public class ForgetPasswordCtl extends BaseCtl {
 			try {
 				userModel.forgetPassword(dto.getLogin());
 				ServletUtility.setSuccessMessage("Password has been sent to your registered email id.", request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (RecordNotFoundException e) {
 				ServletUtility.setErrorMessage(e.getMessage(), request);
 				log.error(e);

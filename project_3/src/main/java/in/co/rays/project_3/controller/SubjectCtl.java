@@ -110,6 +110,9 @@ public class SubjectCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (Exception e) {
 				log.error(e);
 				e.printStackTrace();
@@ -149,6 +152,9 @@ public class SubjectCtl extends BaseCtl {
 					try {
 						pk = model.add(dto);
 						ServletUtility.setSuccessMessage("Data in successfully saved", request);
+					} catch (RuntimeException e) {
+						ServletUtility.setErrorMessage(e.getMessage(), request);
+						ServletUtility.forward(getView(), request, response);
 					} catch (ApplicationException e) {
 						log.error(e);
 						ServletUtility.handleException(e, request, response);
@@ -160,7 +166,9 @@ public class SubjectCtl extends BaseCtl {
 
 				}
 				ServletUtility.setDto(dto, request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);

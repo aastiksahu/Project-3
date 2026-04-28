@@ -20,10 +20,10 @@
 .hm {
 	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wp3228730.jpg');
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 70px;
-	
+
 	/* background-size: 100%; */
 }
 
@@ -146,7 +146,24 @@ i.css {
 												<i class="fa fa-user grey-text"></i>
 											</div>
 										</div>
+										<%
+
+											if (l != null && !l.isEmpty()) {
+										%>
+
 										<%=HTMLUtility.getList("studentId", String.valueOf(dto.getStudentId()), l)%>
+
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
 									</div>
 
 								</div>
@@ -209,7 +226,7 @@ i.css {
 							</div>
 							</br>
 							<%
-								if (dto.getId()!=null) {
+								if (dto.getId() != null) {
 							%>
 
 							<div class="text-center">

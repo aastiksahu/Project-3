@@ -39,7 +39,7 @@ public class StudentCtl extends BaseCtl {
 		try {
 			List l = model.list();
 			request.setAttribute("collegeList", l);
-		} catch (ApplicationException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 
@@ -154,6 +154,10 @@ public class StudentCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);
@@ -193,6 +197,10 @@ public class StudentCtl extends BaseCtl {
 
 						model.add(dto);
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
+					} catch (RuntimeException e) {
+						ServletUtility.setErrorMessage(e.getMessage(), request);
+						ServletUtility.forward(getView(), request, response);
+						return;
 					} catch (ApplicationException e) {
 						log.error(e);
 						ServletUtility.handleException(e, request, response);
@@ -205,7 +213,9 @@ public class StudentCtl extends BaseCtl {
 				}
 
 				ServletUtility.setDto(dto, request);
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);
@@ -224,7 +234,6 @@ public class StudentCtl extends BaseCtl {
 				model.delete(dto);
 				ServletUtility.redirect(ORSView.STUDENT_LIST_CTL, request, response);
 				return;
-
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);

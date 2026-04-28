@@ -125,6 +125,10 @@ public class TimeTableCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.debug(e);
@@ -178,15 +182,21 @@ public class TimeTableCtl extends BaseCtl {
 						} else {
 							ServletUtility.setDto(dto, request);
 							ServletUtility.setErrorMessage("Exam already exist!", request);
-
 						}
+					} catch (RuntimeException e) {
+						ServletUtility.setErrorMessage(e.getMessage(), request);
+						ServletUtility.forward(getView(), request, response);
+						return;
 					} catch (Exception e) {
 
 						e.printStackTrace();
 					}
 
 				}
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (Exception e) {
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setErrorMessage("Login id already exists", request);

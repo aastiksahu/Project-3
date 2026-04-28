@@ -17,10 +17,11 @@ import in.co.rays.project_3.util.HibDataSource;
 
 /**
  * Hibernate implements of Subject model
+ * 
  * @author Aastik Sahu
  *
  */
-public class SubjectModelHibImp implements SubjectModelInt{
+public class SubjectModelHibImp implements SubjectModelInt {
 
 	public long add(SubjectDTO dto) throws ApplicationException, DuplicateRecordException {
 		// TODO Auto-generated method stub
@@ -30,13 +31,13 @@ public class SubjectModelHibImp implements SubjectModelInt{
 		CourseModelInt cModel = ModelFactory.getInstance().getCourseModel();
 		CourseDTO cDto = cModel.findByPK(dto.getCourseId());
 		dto.setCourseName(cDto.getCourseName());
-		
-		
+
 		SubjectDTO duplicataSub = findByName(dto.getSubjectName());
-		System.out.println("subject duplicate    "+duplicataSub);
-	    // Check if create Subject already exist
-	    if (duplicataSub!= null && duplicataSub.getSubjectName()!=null) {
-	        throw new DuplicateRecordException("Subject already exists");}
+		System.out.println("subject duplicate    " + duplicataSub);
+		// Check if create Subject already exist
+		if (duplicataSub != null && duplicataSub.getSubjectName() != null) {
+			throw new DuplicateRecordException("Subject already exists");
+		}
 		try {
 			session = HibDataSource.getSession();
 			tx = session.beginTransaction();
@@ -44,11 +45,11 @@ public class SubjectModelHibImp implements SubjectModelInt{
 			tx.commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
-			// TODO: handle exception
 			if (tx != null) {
 				tx.rollback();
 
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in subject Add " + e.getMessage());
 		} finally {
 			session.close();
@@ -70,6 +71,7 @@ public class SubjectModelHibImp implements SubjectModelInt{
 			if (tx != null) {
 				tx.rollback();
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in subject Delete" + e.getMessage());
 		} finally {
 			session.close();
@@ -94,6 +96,7 @@ public class SubjectModelHibImp implements SubjectModelInt{
 			if (tx != null) {
 				tx.rollback();
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in subject update" + e.getMessage());
 		} finally {
 			session.close();
@@ -102,25 +105,25 @@ public class SubjectModelHibImp implements SubjectModelInt{
 
 	public List list() throws ApplicationException {
 		// TODO Auto-generated method stub
-		return list(0,0);
+		return list(0, 0);
 	}
 
-	public List list(int pageNo,int pageSize) throws ApplicationException {
+	public List list(int pageNo, int pageSize) throws ApplicationException {
 		// TODO Auto-generated method stub
-		Session session=null;
-		List list=null;
+		Session session = null;
+		List list = null;
 		try {
-			session=HibDataSource.getSession();
-			Criteria criteria=session.createCriteria(SubjectDTO.class);
-			if(pageSize>0){
-				pageNo=((pageNo-1)*pageSize)+1;
+			session = HibDataSource.getSession();
+			Criteria criteria = session.createCriteria(SubjectDTO.class);
+			if (pageSize > 0) {
+				pageNo = ((pageNo - 1) * pageSize) + 1;
 				criteria.setFirstResult(pageNo);
 				criteria.setMaxResults(pageSize);
-				
-			}
-			list=criteria.list();
-		} catch (HibernateException e) {
 
+			}
+			list = criteria.list();
+		} catch (HibernateException e) {
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception : Exception in  subject list");
 		} finally {
 			session.close();
@@ -130,40 +133,41 @@ public class SubjectModelHibImp implements SubjectModelInt{
 
 	public List search(SubjectDTO dto) throws ApplicationException {
 		// TODO Auto-generated method stub
-		return search(dto,0,0);
+		return search(dto, 0, 0);
 	}
 
 	public List search(SubjectDTO dto, int pageNo, int pageSize) throws ApplicationException {
 		// TODO Auto-generated method stub
-		Session session=null;
-		List list=null;
+		Session session = null;
+		List list = null;
 		try {
-			session=HibDataSource.getSession();
-			Criteria criteria=session.createCriteria(SubjectDTO.class);
-			if(dto!=null){
-			if(dto.getId()!=null){
-				criteria.add(Restrictions.eq("id", dto.getId()));
-				
+			session = HibDataSource.getSession();
+			Criteria criteria = session.createCriteria(SubjectDTO.class);
+			if (dto != null) {
+				if (dto.getId() != null) {
+					criteria.add(Restrictions.eq("id", dto.getId()));
+
+				}
+				if (dto.getSubjectId() > 0) {
+					criteria.add(Restrictions.eq("subjectId", dto.getSubjectId()));
+				}
+				if (dto.getCourseId() > 0) {
+					criteria.add(Restrictions.eq("courseId", dto.getCourseId()));
+				}
+				if (dto.getCourseName() != null && dto.getCourseName().length() > 0) {
+					criteria.add(Restrictions.like("courseName", dto.getCourseName() + "%"));
+				}
+				if (dto.getSubjectName() != null && dto.getSubjectName().length() > 0) {
+					criteria.add(Restrictions.like("subjectName", dto.getSubjectName() + "%"));
+				}
 			}
-			if(dto.getSubjectId()>0){
-				criteria.add(Restrictions.eq("subjectId", dto.getSubjectId()));
-			}
-			if(dto.getCourseId()>0){
-				criteria.add(Restrictions.eq("courseId", dto.getCourseId()));
-			}
-			if(dto.getCourseName()!=null&& dto.getCourseName().length()>0){
-				criteria.add(Restrictions.like("courseName", dto.getCourseName()+"%"));
-			}
-			if(dto.getSubjectName()!=null&& dto.getSubjectName().length()>0){
-				criteria.add(Restrictions.like("subjectName", dto.getSubjectName()+"%"));
-			}}
-			if(pageSize>0){
-				criteria.setFirstResult((pageNo-1)*pageSize);
+			if (pageSize > 0) {
+				criteria.setFirstResult((pageNo - 1) * pageSize);
 				criteria.setMaxResults(pageSize);
 			}
-			list=criteria.list();
+			list = criteria.list();
 		} catch (HibernateException e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception : Exception in  subject search");
 		} finally {
 			session.close();
@@ -173,43 +177,41 @@ public class SubjectModelHibImp implements SubjectModelInt{
 
 	public SubjectDTO findByPK(long pk) throws ApplicationException {
 		// TODO Auto-generated method stub
-		Session session=null;
-		SubjectDTO dto=null;
+		Session session = null;
+		SubjectDTO dto = null;
 		try {
-			session=HibDataSource.getSession();
-			dto=(SubjectDTO) session.get(SubjectDTO.class, pk);
-			
+			session = HibDataSource.getSession();
+			dto = (SubjectDTO) session.get(SubjectDTO.class, pk);
+
 		} catch (HibernateException e) {
-            
-            throw new ApplicationException(
-                    "Exception : Exception in getting subject by pk");
-        } finally {
-            session.close();
-        }
+			HibDataSource.handleException(e);
+			throw new ApplicationException("Exception : Exception in getting subject by pk");
+		} finally {
+			session.close();
+		}
 
 		return dto;
 	}
 
 	public SubjectDTO findByName(String name) throws ApplicationException {
 		// TODO Auto-generated method stub
-		Session session=null;
-		SubjectDTO dto=null;
+		Session session = null;
+		SubjectDTO dto = null;
 		try {
-			session=HibDataSource.getSession();
-			Criteria criteria=session.createCriteria(SubjectDTO.class);
+			session = HibDataSource.getSession();
+			Criteria criteria = session.createCriteria(SubjectDTO.class);
 			criteria.add(Restrictions.eq("subjectName", name));
-			List list=criteria.list();
-			if(list.size()==1){
-				dto=(SubjectDTO) list.get(0);
+			List list = criteria.list();
+			if (list.size() == 1) {
+				dto = (SubjectDTO) list.get(0);
 			}
 		} catch (HibernateException e) {
-            
-            throw new ApplicationException(
-                    "Exception in getting subject by Login " + e.getMessage());
+			HibDataSource.handleException(e);
+			throw new ApplicationException("Exception in getting subject by Login " + e.getMessage());
 
-        } finally {
-            session.close();
-        }
+		} finally {
+			session.close();
+		}
 		return dto;
 	}
 

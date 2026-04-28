@@ -27,7 +27,7 @@
 	</div>
 	<div class="text-cs1">
 		<center>
-			<h1 style="padding-top: 80%; color: white">
+			<h1 style="padding-top: 20%; color: red">
 				<b class="cl">" Welcome to online result system "</b>
 			</h1>
 		</center>

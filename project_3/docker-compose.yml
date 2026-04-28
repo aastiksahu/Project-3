@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   mysql:
     image: mysql:8.0
@@ -12,6 +13,7 @@ services:
       - mynetwork
     volumes:
       - ./mysql-data:/var/lib/mysql
+
   webapp:
     build:
       context: .
@@ -21,9 +23,13 @@ services:
     networks:
       - mynetwork
     depends_on:
-      - mysql
+      - mysql   # ✅ correct
     environment:
       - DATABASE_URL=jdbc:mysql://mysql:3306/project_3
+      - JASPER_FILE=/app/reports/proj_03.jrxml
+    volumes:
+      - "C:/Users/aasti/JaspersoftWorkspace/MyReports:/app/reports"
+
 networks:
   mynetwork:
     driver: bridge

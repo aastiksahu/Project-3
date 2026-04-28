@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -92,7 +93,15 @@ public class CourseListCtl extends BaseCtl {
 			ServletUtility.setPageNo(pageNo, request);
 			ServletUtility.setPageSize(pageSize, request);
 			ServletUtility.forward(getView(), request, response);
+		} catch (RuntimeException e) {
 
+			ServletUtility.setErrorMessage(e.getMessage(), request);
+			ServletUtility.setList(new ArrayList(), request);
+			ServletUtility.setPageNo(pageNo, request);
+			ServletUtility.setPageSize(pageSize, request);
+			request.setAttribute("nextListSize", 0);
+			ServletUtility.forward(getView(), request, response);
+			return;
 		} catch (ApplicationException e) {
 			log.error(e);
 			ServletUtility.handleException(e, request, response);
@@ -166,7 +175,7 @@ public class CourseListCtl extends BaseCtl {
 			ServletUtility.setDto(dto, request);
 			next = model.search(dto, pageNo + 1, pageSize);
 			ServletUtility.setList(list, request);
-			
+
 			if (list == null || list.size() == 0 && !OP_DELETE.equalsIgnoreCase(op)) {
 				ServletUtility.setErrorMessage("No record found", request);
 			}
@@ -181,6 +190,15 @@ public class CourseListCtl extends BaseCtl {
 			ServletUtility.setPageSize(pageSize, request);
 			ServletUtility.forward(getView(), request, response);
 
+		} catch (RuntimeException e) {
+
+			ServletUtility.setErrorMessage(e.getMessage(), request);
+			ServletUtility.setList(new ArrayList(), request);
+			ServletUtility.setPageNo(pageNo, request);
+			ServletUtility.setPageSize(pageSize, request);
+			request.setAttribute("nextListSize", 0);
+			ServletUtility.forward(getView(), request, response);
+			return;
 		} catch (ApplicationException e) {
 			log.error(e);
 			ServletUtility.handleException(e, request, response);

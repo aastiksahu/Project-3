@@ -197,6 +197,9 @@ public class UserCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error(e);
@@ -217,7 +220,7 @@ public class UserCtl extends BaseCtl {
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
-		if (OP_SAVE.equalsIgnoreCase(op)){
+		if (OP_SAVE.equalsIgnoreCase(op)) {
 
 			UserDTO dto = (UserDTO) populateDTO(request);
 
@@ -225,7 +228,7 @@ public class UserCtl extends BaseCtl {
 				model.add(dto);
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setSuccessMessage("User Successfully Saved", request);
-			}catch (RuntimeException e) {
+			} catch (RuntimeException e) {
 				ServletUtility.setErrorMessage(e.getMessage(), request);
 				ServletUtility.forward(getView(), request, response);
 				return;
@@ -249,6 +252,10 @@ public class UserCtl extends BaseCtl {
 				model.update(dto);
 				ServletUtility.setDto(dto, request);
 				ServletUtility.setSuccessMessage("User Successfully Updated", request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
+				return;
 			} catch (ApplicationException e) {
 				log.error("Database error while saving User", e);
 				ServletUtility.setErrorMessage(e.getMessage(), request); // message from handleException

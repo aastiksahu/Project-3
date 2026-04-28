@@ -36,13 +36,11 @@ i.css {
 
 .p4 {
 	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wp3228730.jpg');
-	
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 75px;
-	
-	}
+}
 </style>
 </head>
 <body class="p4">
@@ -251,7 +249,22 @@ i.css {
 												<i class="fa fa-building grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
-										<%=HTMLUtility.getList("collegeId", String.valueOf(dto.getCollegeId()), ll)%></div>
+										<%
+											if (ll != null && !ll.isEmpty()) {
+										%>
+										<%=HTMLUtility.getList("collegeId", String.valueOf(dto.getCollegeId()), ll)%>
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
+									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("collegeId", request)%></font></br>
 
@@ -264,7 +277,22 @@ i.css {
 												<i class="fa fa-book grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
-										<%=HTMLUtility.getList("subjectId", String.valueOf(dto.getSubjectId()), llist)%></div>
+										<%
+											if (llist != null && !llist.isEmpty()) {
+										%>
+										<%=HTMLUtility.getList("subjectId", String.valueOf(dto.getSubjectId()), llist)%>
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
+									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("subjectId", request)%></font></br>
 
@@ -277,7 +305,22 @@ i.css {
 												<i class="fa fa-user-alt grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
-										<%=HTMLUtility.getList("courseId", String.valueOf(dto.getCourseId()), lli)%></div>
+										<%
+											if (lli != null && !lli.isEmpty()) {
+										%>
+										<%=HTMLUtility.getList("courseId", String.valueOf(dto.getCourseId()), lli)%>
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
+									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("courseId", request)%></font></br>
 								</br>

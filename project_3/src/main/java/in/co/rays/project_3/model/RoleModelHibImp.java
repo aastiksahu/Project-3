@@ -44,6 +44,7 @@ public class RoleModelHibImp implements RoleModelInt{
 				tx.rollback();
 
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Role Add " + e.getMessage());
 		} finally {
 			session.close();
@@ -67,6 +68,7 @@ public class RoleModelHibImp implements RoleModelInt{
 				tx.rollback();
 
 			}
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in Role delete " + e.getMessage());
 		} finally {
 			session.close();
@@ -151,7 +153,7 @@ public class RoleModelHibImp implements RoleModelInt{
 			}
 			list=criteria.list();
 		} catch (HibernateException e) {
-            
+            HibDataSource.handleException(e);
             throw new ApplicationException("Exception in course search");
         } finally {
             session.close();
@@ -188,7 +190,7 @@ public class RoleModelHibImp implements RoleModelInt{
 				dto = (RoleDTO) list.get(0);
 			}
 		} catch (HibernateException e) {
-
+			HibDataSource.handleException(e);
 			throw new ApplicationException("Exception in getting Role by Login " + e.getMessage());
 
 		} finally {

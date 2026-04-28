@@ -92,6 +92,9 @@ public class CourseCtl extends BaseCtl {
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error(e);
@@ -135,6 +138,9 @@ public class CourseCtl extends BaseCtl {
 						model.add(dto);
 						ServletUtility.setSuccessMessage("Data Successfully saved", request);
 						ServletUtility.setDto(dto, request);
+					} catch (RuntimeException e) {
+						ServletUtility.setErrorMessage(e.getMessage(), request);
+						ServletUtility.forward(getView(), request, response);
 					} catch (ApplicationException e) {
 						log.error(e);
 						ServletUtility.handleException(e, request, response);
@@ -144,7 +150,9 @@ public class CourseCtl extends BaseCtl {
 						ServletUtility.setErrorMessage("course  already exists", request);
 					}
 				}
-
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);
@@ -159,6 +167,9 @@ public class CourseCtl extends BaseCtl {
 				model.delete(dto);
 				ServletUtility.redirect(ORSView.COURSE_LIST_CTL, request, response);
 				return;
+			} catch (RuntimeException e) {
+				ServletUtility.setErrorMessage(e.getMessage(), request);
+				ServletUtility.forward(getView(), request, response);
 			} catch (ApplicationException e) {
 				log.error(e);
 				ServletUtility.handleException(e, request, response);

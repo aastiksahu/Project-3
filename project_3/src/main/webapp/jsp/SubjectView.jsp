@@ -18,16 +18,13 @@
 	/* padding-left: 30%; */
 }
 
-
 .hm {
 	background-image: url('<%=ORSView.APP_CONTEXT%>/img/wp3228730.jpg');
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 75px;
-	
 }
-
 
 i.css {
 	border: 2px solid #8080803b;
@@ -151,7 +148,22 @@ i.css {
 												<i class="fa fa-user-alt grey-text" style="font-size: 1rem;"></i>
 											</div>
 										</div>
+										<%
+											if (l != null && !l.isEmpty()) {
+										%>
 										<%=HTMLUtility.getList("courseId", String.valueOf(dto.getCourseId()), l)%>
+
+										<%
+											} else {
+										%>
+
+										<select name="studentId" class="form-control">
+											<option value="">-- No Data Available --</option>
+										</select>
+
+										<%
+											}
+										%>
 									</div>
 								</div>
 								<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("courseId", request)%></font></br>

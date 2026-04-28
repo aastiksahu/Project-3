@@ -29,6 +29,41 @@ public final class ModelFactory {
 		return mFactory;
 	}
 	
+	public BlockModelInt getBlockModel() {
+
+		BlockModelInt blockModel = (BlockModelInt) modelCache.get("blockModel");
+		if (blockModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				blockModel = new BlockModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				blockModel = new BlockModelHibImpl();
+			}
+			modelCache.put("blockModel", blockModel);
+		}
+
+		return blockModel;
+	}
+	
+	public FeatureModelInt getFeatureModel() {
+
+		FeatureModelInt featureModel = (FeatureModelInt) modelCache.get("featureModel");
+		if (featureModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				featureModel = new FeatureModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				featureModel = new FeatureModelHibImpl();
+			}
+			modelCache.put("featureModel", featureModel);
+		}
+
+		return featureModel;
+	}
+	
+	
 	public EventRegistrationModelInt getEventRegistrationModel() {
 
 		EventRegistrationModelInt eventRegistrationModel = (EventRegistrationModelInt) modelCache.get("eventRegistrationModel");
