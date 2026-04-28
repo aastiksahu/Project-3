@@ -73,15 +73,7 @@ public class JasperCtl extends BaseCtl {
 				reportPath = rb.getString("jasperctl");
 			}
 
-			File file = new File(reportPath);
-
-			System.out.println("Jasper Path = " + file.getAbsolutePath());
-
-			if (!file.exists()) {
-			    throw new RuntimeException("Report NOT FOUND at: " + file.getAbsolutePath());
-			}
-
-			JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+			JasperReport jasperReport = JasperCompileManager.compileReport(reportPath);
 
 			HttpSession session = request.getSession(true);
 
