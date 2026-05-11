@@ -29,6 +29,7 @@ services:
       - JASPER_FILE=/app/reports/proj_03.jrxml
     volumes:
       - "C:/Users/aasti/JaspersoftWorkspace/MyReports:/app/reports"
+      - "D:/Rays/Project 03 Practice/report:/app/reports"
 
 networks:
   mynetwork:
