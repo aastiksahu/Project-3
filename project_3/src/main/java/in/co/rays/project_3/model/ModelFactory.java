@@ -29,6 +29,23 @@ public final class ModelFactory {
 		return mFactory;
 	}
 	
+	public AccountStatusModelInt getAccountStatusModel() {
+
+		AccountStatusModelInt accountStatusModel = (AccountStatusModelInt) modelCache.get("accountStatusModel");
+		if (accountStatusModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				accountStatusModel = new AccountStatusModelHibImpl();
+			}
+			//in future make changes here
+			if ("JDBC".equals(DATABASE)) {
+				accountStatusModel = new AccountStatusModelHibImpl();
+			}
+			modelCache.put("accountStatusModel", accountStatusModel);
+		}
+
+		return accountStatusModel;
+	}
+	
 	public BlockModelInt getBlockModel() {
 
 		BlockModelInt blockModel = (BlockModelInt) modelCache.get("blockModel");

@@ -17,6 +17,15 @@ public interface ORSView {
 	public String ERROR_VIEW = PAGE_FOLDER + "/ErrorView404.jsp";
 	
 	
+	public String ACCOUNT_STATUS_VIEW = PAGE_FOLDER + "/AccountStatusView.jsp";
+
+	public String ACCOUNT_STATUS_LIST_VIEW = PAGE_FOLDER + "/AccountStatusListView.jsp";
+	
+	public String ACCOUNT_STATUS_CTL = APP_CONTEXT + "/ctl/AccountStatusCtl";
+
+	public String ACCOUNT_STATUS_LIST_CTL = APP_CONTEXT + "/ctl/AccountStatusListCtl";
+	
+	
 	public String BLOCK_VIEW = PAGE_FOLDER + "/BlockView.jsp";
 
 	public String BLOCK_LIST_VIEW = PAGE_FOLDER + "/BlockListView.jsp";

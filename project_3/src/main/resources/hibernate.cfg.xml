@@ -72,5 +72,7 @@
 			<mapping resource="in/co/rays/project_3/hbm/FeatureDTO.hbm.xml" />
 			
 			<mapping resource="in/co/rays/project_3/hbm/BlockDTO.hbm.xml" />
+			
+			<mapping resource="in/co/rays/project_3/hbm/AccountStatusDTO.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>
